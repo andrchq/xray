@@ -8,6 +8,7 @@ EMAIL=""
 CDN_PROVIDER="cloudflare"
 PUBLIC_PORT="443"
 TLS_MODE="acme"
+ENABLE_HTTP_ORIGIN=0
 OPEN_HTTP3_UDP=0
 CONFIGURE_FIREWALL=1
 INSTALL_CADDY=1
@@ -56,6 +57,8 @@ CDN/Caddy:
   --tls-mode <acme|internal>         acme uses a public certificate. internal uses Caddy's local CA
                                      and requires origin certificate verification to be disabled in CDN.
                                      Default: acme.
+  --enable-http-origin               Also serve the same CDN routes over plain HTTP on port 80.
+                                     Use this if the CDN cannot connect to internal/self-signed origin TLS.
   --open-http3-udp                   Also open the HTTPS port over UDP.
   --no-install-caddy                 Skip Caddy package installation.
   --no-firewall                      Do not change ufw/firewalld rules.
@@ -105,6 +108,7 @@ parse_args() {
       --cdn) CDN_PROVIDER="${2:-}"; shift 2 ;;
       --public-port) PUBLIC_PORT="${2:-}"; shift 2 ;;
       --tls-mode) TLS_MODE="${2:-}"; shift 2 ;;
+      --enable-http-origin) ENABLE_HTTP_ORIGIN=1; shift ;;
       --open-http3-udp) OPEN_HTTP3_UDP=1; shift ;;
       --no-install-caddy) INSTALL_CADDY=0; shift ;;
       --no-firewall) CONFIGURE_FIREWALL=0; shift ;;
@@ -269,6 +273,16 @@ caddy_tls_directive() {
   printf '\ttls internal\n'
 }
 
+caddy_http_origin_site() {
+  [[ "$ENABLE_HTTP_ORIGIN" -eq 1 ]] || return 0
+  cat <<EOF
+
+http://${DOMAIN} {
+	import cdn_routes
+}
+EOF
+}
+
 caddy_site_address() {
   if [[ "$PUBLIC_PORT" == "443" ]]; then
     printf 'https://%s\n' "$DOMAIN"
@@ -387,8 +401,7 @@ ${trusted_block}
 	}
 }
 
-${site} {
-$(caddy_tls_directive)
+(cdn_routes) {
 	header {
 		-Server
 		X-Content-Type-Options nosniff
@@ -418,6 +431,12 @@ $(caddy_httpupgrade_route)
 	root * ${FAKE_SITE_ROOT}
 	file_server
 }
+
+${site} {
+$(caddy_tls_directive)
+	import cdn_routes
+}
+$(caddy_http_origin_site)
 EOF
 
   caddy fmt --overwrite "$CADDYFILE" >/dev/null
