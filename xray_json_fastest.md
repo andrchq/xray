@@ -27,17 +27,17 @@
         "type": "field",
         "network": "tcp,udp",
         "inboundTag": [
-          "whl-fallback"
+          "xhttp-fallback"
         ],
-        "balancerTag": "whl_bridge"
+        "balancerTag": "xhttp_countries"
       },
       {
         "type": "field",
         "network": "tcp,udp",
         "inboundTag": [
-          "cdn-fallback"
+          "whl-fallback"
         ],
-        "balancerTag": "cdn_bridge"
+        "balancerTag": "whl_bridge"
       },
       {
         "type": "field",
@@ -96,7 +96,7 @@
           "domain:waa-pa.clients6.google.com",
           "domain:webchannel-alkalimakersuite-pa.clients6.google.com"
         ],
-        "outboundTag": "usa"
+        "balancerTag": "grpc_countries"
       },
       {
         "type": "field",
@@ -105,7 +105,7 @@
           "domain:prsta.xyz"
         ],
         "network": "tcp,udp",
-        "balancerTag": "fastest_lte"
+        "balancerTag": "grpc_countries"
       },
       {
         "ip": [
@@ -113,7 +113,7 @@
         ],
         "type": "field",
         "network": "tcp,udp",
-        "balancerTag": "fastest_lte"
+        "balancerTag": "grpc_countries"
       },
       {
         "type": "field",
@@ -136,7 +136,7 @@
           "domain:discordsays.com"
         ],
         "network": "tcp,udp",
-        "balancerTag": "fastest_lte"
+        "balancerTag": "grpc_countries"
       },
       {
         "type": "field",
@@ -1179,7 +1179,7 @@
           "domain:ip-sonar.com"
         ],
         "network": "tcp,udp",
-        "balancerTag": "whl_bridge"
+        "balancerTag": "grpc_countries"
       },
       {
         "type": "field",
@@ -1194,19 +1194,19 @@
           "domain:gstatic.com",
           "regexp:.*\\.gstatic\\.com"
         ],
-        "balancerTag": "whl_bridge"
+        "balancerTag": "grpc_countries"
       },
       {
         "type": "field",
         "network": "tcp,udp",
-        "balancerTag": "fastest_lte"
+        "balancerTag": "grpc_countries"
       }
     ],
     "balancers": [
       {
-        "tag": "fastest_lte",
+        "tag": "grpc_countries",
         "selector": [
-          "server"
+          "server-grpc"
         ],
         "strategy": {
           "type": "leastLoad",
@@ -1219,30 +1219,30 @@
             "tolerance": 0.05
           }
         },
-        "fallbackTag": "to_whl_balancer"
+        "fallbackTag": "to_xhttp_pool"
+      },
+      {
+        "tag": "xhttp_countries",
+        "selector": [
+          "server-xhttp"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "1500ms",
+            "expected": 0,
+            "baselines": [
+              "500ms"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "to_whl_pool"
       },
       {
         "tag": "whl_bridge",
         "selector": [
           "bridge"
-        ],
-        "strategy": {
-          "type": "leastLoad",
-          "settings": {
-            "maxRTT": "2s",
-            "expected": 1,
-            "baselines": [
-              "1s"
-            ],
-            "tolerance": 0.05
-          }
-        },
-        "fallbackTag": "to_cdn_balancer"
-      },
-      {
-        "tag": "cdn_bridge",
-        "selector": [
-          "cdn"
         ],
         "strategy": {
           "type": "leastLoad",
@@ -1300,17 +1300,17 @@
   ],
   "outbounds": [
     {
-      "tag": "to_whl_balancer",
+      "tag": "to_xhttp_pool",
       "protocol": "loopback",
       "settings": {
-        "inboundTag": "whl-fallback"
+        "inboundTag": "xhttp-fallback"
       }
     },
     {
-      "tag": "to_cdn_balancer",
+      "tag": "to_whl_pool",
       "protocol": "loopback",
       "settings": {
-        "inboundTag": "cdn-fallback"
+        "inboundTag": "whl-fallback"
       }
     },
     {
@@ -1330,18 +1330,18 @@
       {
         "selector": {
           "type": "tagRegex",
-          "pattern": "^SERVER:EXIT$"
+          "pattern": "^SERVER:EXIT:(LT|DE|SE|US)$"
         },
-        "tagPrefix": "server",
+        "tagPrefix": "server-grpc",
         "selectFrom": "NOT_HIDDEN"
       },
       {
         "selector": {
           "type": "tagRegex",
-          "pattern": "^SERVER:EXIT:US$"
+          "pattern": "^SERVER:EXIT:(LT|DE|SE|US)$"
         },
-        "tagPrefix": "usa",
-        "selectFrom": "NOT_HIDDEN"
+        "tagPrefix": "server-xhttp",
+        "selectFrom": "HIDDEN"
       },
       {
         "selector": {
@@ -1350,14 +1350,6 @@
         },
         "tagPrefix": "bridge",
         "selectFrom": "HIDDEN"
-      },
-      {
-        "selector": {
-          "type": "tagRegex",
-          "pattern": "^BRIDGE:CDN$"
-        },
-        "tagPrefix": "cdn",
-        "selectFrom": "NOT_HIDDEN"
       }
     ]
   },
@@ -1370,9 +1362,9 @@
       "connectivity": ""
     },
     "subjectSelector": [
-      "server",
-      "bridge",
-      "cdn"
+      "server-grpc",
+      "server-xhttp",
+      "bridge"
     ]
   }
 }
