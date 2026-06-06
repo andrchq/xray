@@ -87,6 +87,89 @@
       }
     },
     {
+      "tag": "[LITVA-2-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nlt2.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "shortIds": [
+            "f86d40c776321c33",
+            "33e99bb35c1b8561",
+            "503221a95d069152"
+          ],
+          "publicKey": "9uhNUS_A2_RyQnrjAkL64_i36ShVGCwUhfjHxN7YQAQ",
+          "privateKey": "YSzE5ksIMAh6u4pXnYO3aH61N36HEuoOogp6uwVAVZ0",
+          "serverNames": [
+            "nlt2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[LITVA-2-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/litva"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "shortIds": [
+            "f86d40c776321c33",
+            "33e99bb35c1b8561",
+            "503221a95d069152"
+          ],
+          "publicKey": "9uhNUS_A2_RyQnrjAkL64_i36ShVGCwUhfjHxN7YQAQ",
+          "privateKey": "YSzE5ksIMAh6u4pXnYO3aH61N36HEuoOogp6uwVAVZ0",
+          "serverNames": [
+            "nlt2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
       "tag": "[GERMANY-GRPC]",
       "port": 443,
       "listen": "0.0.0.0",
@@ -248,6 +331,89 @@
           "privateKey": "p2U5ofMpXzLCLHda6vnDdxO9vtDdpMUQgVNee29wMtg",
           "serverNames": [
             "nsw.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[SWEDEN-2-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nsw2.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "shortIds": [
+            "182b9f1abad097d5",
+            "d7310c3fffc7a046",
+            "25e58f412e5c82e8"
+          ],
+          "publicKey": "Siux5J6I8p7kClMvAVRkE1iKhnh3IDC6u-8yzzqQi0o",
+          "privateKey": "-Pd2sotxYwpqxyAdSDQX3V8NjMcRICTlp4SRYYK_chE",
+          "serverNames": [
+            "nsw2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[SWEDEN-2-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/sweden"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "shortIds": [
+            "182b9f1abad097d5",
+            "d7310c3fffc7a046",
+            "25e58f412e5c82e8"
+          ],
+          "publicKey": "Siux5J6I8p7kClMvAVRkE1iKhnh3IDC6u-8yzzqQi0o",
+          "privateKey": "-Pd2sotxYwpqxyAdSDQX3V8NjMcRICTlp4SRYYK_chE",
+          "serverNames": [
+            "nsw2.prsta.xyz"
           ]
         }
       }
