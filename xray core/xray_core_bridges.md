@@ -1,6 +1,26 @@
 {
   "log": {
-    "loglevel": "debug"
+    "loglevel": "warning"
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 4,
+        "connIdle": 180,
+        "uplinkOnly": 1,
+        "downlinkOnly": 1,
+        "statsUserUplink": false,
+        "statsUserDownlink": false,
+        "statsUserOnline": false,
+        "bufferSize": 16
+      }
+    },
+    "system": {
+      "statsInboundUplink": false,
+      "statsInboundDownlink": false,
+      "statsOutboundUplink": false,
+      "statsOutboundDownlink": false
+    }
   },
   "inbounds": [
     {

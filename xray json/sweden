@@ -1,27 +1,208 @@
 {
-  "remnawave": {
-    "addVirtualHostAsOutbound": true,
-    "injectHosts": [
-      {
-        "selector": {
-          "type": "sameTagAsRecipient"
-        },
-        "tagPrefix": "xhttp-fallback",
-        "selectFrom": "HIDDEN"
-      }
-    ]
-  },
   "dns": {
-    "hosts": {
-      "one.one.one.one": [
-        "8.8.8.8",
-        "8.8.4.4"
-      ]
-    },
     "servers": [
-      "https://dns.google/dns-query"
+      {
+        "port": 53,
+        "address": "77.88.8.8",
+        "domains": [
+          "geosite:category-ru",
+          "regexp:.*\\.ru$",
+          "regexp:.*\\.su$",
+          "regexp:.*\\.xn--p1ai$",
+          "domain:yandex.com",
+          "domain:yandex.net",
+          "domain:yandex.st",
+          "domain:yastatic.net",
+          "domain:yandexcloud.net",
+          "domain:yandexgo.com",
+          "domain:yango.com",
+          "domain:yango.taxi",
+          "domain:yango.tech",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:userapi.com",
+          "domain:vkuservideo.com",
+          "domain:vkuservideo.net",
+          "domain:vkcs.cloud",
+          "domain:mail.ru",
+          "domain:my.com",
+          "domain:mycdn.me",
+          "domain:tamtam.chat",
+          "domain:youla.io",
+          "domain:ozon.com",
+          "domain:ozon.by",
+          "domain:ozon.kz",
+          "domain:ozon.com.by",
+          "domain:ozon.com.kz",
+          "domain:ozonusercontent.com",
+          "domain:ozonru.com",
+          "domain:ozonru.me",
+          "domain:wildberries.by",
+          "domain:wildberries.kz",
+          "domain:wildberries.am",
+          "domain:wildberries.ge",
+          "domain:wildberries.kg",
+          "domain:wildberries.uz",
+          "domain:wb.am",
+          "domain:wb.kz",
+          "domain:wb.kg",
+          "domain:paywb.com",
+          "domain:avito.st",
+          "domain:chizhik.club",
+          "domain:sberbank.com",
+          "domain:t.finance",
+          "domain:gazprombank.com",
+          "domain:gazprombank.investments",
+          "domain:vtb.com",
+          "domain:2gis.com",
+          "domain:2gis.kz",
+          "domain:2gis.ae",
+          "domain:bitrix24.com",
+          "domain:jivo.chat",
+          "domain:jivochat.com",
+          "domain:jivosite.com",
+          "domain:ngenix.net",
+          "domain:cdnvideo.net",
+          "domain:edgecenter.io",
+          "domain:qrator.net",
+          "domain:ddos-guard.net",
+          "domain:stormwall.pro",
+          "domain:stormwall.network",
+          "domain:selectel.com",
+          "domain:beget.com"
+        ],
+        "queryStrategy": "UseIPv4"
+      },
+      {
+        "port": 53,
+        "address": "77.88.8.1",
+        "domains": [
+          "geosite:category-ru",
+          "regexp:.*\\.ru$",
+          "regexp:.*\\.su$",
+          "regexp:.*\\.xn--p1ai$",
+          "domain:yandex.com",
+          "domain:yandex.net",
+          "domain:yandex.st",
+          "domain:yastatic.net",
+          "domain:yandexcloud.net",
+          "domain:yandexgo.com",
+          "domain:yango.com",
+          "domain:yango.taxi",
+          "domain:yango.tech",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:userapi.com",
+          "domain:vkuservideo.com",
+          "domain:vkuservideo.net",
+          "domain:vkcs.cloud",
+          "domain:mail.ru",
+          "domain:my.com",
+          "domain:mycdn.me",
+          "domain:tamtam.chat",
+          "domain:youla.io",
+          "domain:ozon.com",
+          "domain:ozon.by",
+          "domain:ozon.kz",
+          "domain:ozon.com.by",
+          "domain:ozon.com.kz",
+          "domain:ozonusercontent.com",
+          "domain:ozonru.com",
+          "domain:ozonru.me",
+          "domain:wildberries.by",
+          "domain:wildberries.kz",
+          "domain:wildberries.am",
+          "domain:wildberries.ge",
+          "domain:wildberries.kg",
+          "domain:wildberries.uz",
+          "domain:wb.am",
+          "domain:wb.kz",
+          "domain:wb.kg",
+          "domain:paywb.com",
+          "domain:avito.st",
+          "domain:chizhik.club",
+          "domain:sberbank.com",
+          "domain:t.finance",
+          "domain:gazprombank.com",
+          "domain:gazprombank.investments",
+          "domain:vtb.com",
+          "domain:2gis.com",
+          "domain:2gis.kz",
+          "domain:2gis.ae",
+          "domain:bitrix24.com",
+          "domain:jivo.chat",
+          "domain:jivochat.com",
+          "domain:jivosite.com",
+          "domain:ngenix.net",
+          "domain:cdnvideo.net",
+          "domain:edgecenter.io",
+          "domain:qrator.net",
+          "domain:ddos-guard.net",
+          "domain:stormwall.pro",
+          "domain:stormwall.network",
+          "domain:selectel.com",
+          "domain:beget.com"
+        ],
+        "queryStrategy": "UseIPv4"
+      },
+      {
+        "address": "https://1.1.1.1/dns-query",
+        "domains": [
+          "domain:chatgpt.com",
+          "domain:openai.com",
+          "domain:oaistatic.com",
+          "domain:oaiusercontent.com",
+          "domain:claude.ai",
+          "domain:anthropic.com",
+          "domain:gemini.google.com",
+          "domain:generativelanguage.googleapis.com",
+          "domain:aistudio.google.com",
+          "geosite:telegram",
+          "geosite:discord",
+          "domain:youtube.com",
+          "domain:youtu.be",
+          "domain:ytimg.com",
+          "domain:googlevideo.com",
+          "domain:youtubei.googleapis.com",
+          "domain:ipinfo.io",
+          "domain:ip-api.com",
+          "domain:ip-api.io",
+          "domain:ipify.org",
+          "domain:browserleaks.com",
+          "domain:whoer.net",
+          "domain:dnsleaktest.com",
+          "domain:2ip.ru",
+          "domain:2ip.io",
+          "domain:ipleak.net",
+          "domain:whatismyip.com",
+          "domain:whatismyipaddress.com",
+          "domain:ifconfig.me",
+          "domain:ifconfig.co",
+          "domain:ifconfig.io",
+          "domain:icanhazip.com",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:ip.sb",
+          "domain:ip.me",
+          "domain:ipwho.is",
+          "domain:ipwhois.io",
+          "domain:proxycheck.io",
+          "domain:vpnapi.io",
+          "domain:iphub.info",
+          "domain:ipqualityscore.com"
+        ],
+        "finalQuery": true,
+        "skipFallback": true,
+        "queryStrategy": "UseIPv4"
+      },
+      "https://1.1.1.1/dns-query",
+      "77.88.8.8",
+      "77.88.8.1"
     ],
-    "queryStrategy": "UseIPv4"
+    "disableCache": false,
+    "queryStrategy": "UseIPv4",
+    "disableFallback": false,
+    "disableFallbackIfMatch": false
   },
   "log": {
     "error": "",
@@ -29,8 +210,6 @@
     "loglevel": "warning"
   },
   "routing": {
-    "domainMatcher": "hybrid",
-    "domainStrategy": "IPOnDemand",
     "rules": [
       {
         "type": "field",
@@ -45,6 +224,40 @@
         ],
         "type": "field",
         "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "inboundTag": [
+          "country-tcp-fallback"
+        ],
+        "balancerTag": "country_tcp"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "inboundTag": [
+          "country-xhttp-fallback"
+        ],
+        "balancerTag": "country_xhttp"
+      },
+      {
+        "ip": [
+          "geoip:ru"
+        ],
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:category-ru",
+          "domain:mdm-print.ru",
+          "full:mx1.mdm-print.ru"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "direct"
       },
       {
         "type": "field",
@@ -103,7 +316,7 @@
           "domain:waa-pa.clients6.google.com",
           "domain:webchannel-alkalimakersuite-pa.clients6.google.com"
         ],
-        "balancerTag": "country_exit"
+        "balancerTag": "country_grpc"
       },
       {
         "type": "field",
@@ -112,7 +325,7 @@
           "domain:prsta.xyz"
         ],
         "network": "tcp,udp",
-        "balancerTag": "country_exit"
+        "balancerTag": "country_grpc"
       },
       {
         "ip": [
@@ -120,7 +333,7 @@
         ],
         "type": "field",
         "network": "tcp,udp",
-        "balancerTag": "country_exit"
+        "balancerTag": "country_grpc"
       },
       {
         "type": "field",
@@ -143,7 +356,7 @@
           "domain:discordsays.com"
         ],
         "network": "tcp,udp",
-        "balancerTag": "country_exit"
+        "balancerTag": "country_grpc"
       },
       {
         "type": "field",
@@ -1186,7 +1399,7 @@
           "domain:ip-sonar.com"
         ],
         "network": "tcp,udp",
-        "balancerTag": "country_exit"
+        "outboundTag": "direct"
       },
       {
         "type": "field",
@@ -1201,19 +1414,19 @@
           "domain:gstatic.com",
           "regexp:.*\\.gstatic\\.com"
         ],
-        "balancerTag": "country_exit"
+        "balancerTag": "country_grpc"
       },
       {
         "type": "field",
         "network": "tcp,udp",
-        "balancerTag": "country_exit"
+        "balancerTag": "country_grpc"
       }
     ],
     "balancers": [
       {
-        "tag": "country_exit",
+        "tag": "country_grpc",
         "selector": [
-          "proxy"
+          "country-grpc"
         ],
         "strategy": {
           "type": "leastLoad",
@@ -1226,9 +1439,47 @@
             "tolerance": 0.05
           }
         },
-        "fallbackTag": "xhttp-fallback"
+        "fallbackTag": "to_country_tcp"
+      },
+      {
+        "tag": "country_tcp",
+        "selector": [
+          "country-tcp"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "1500ms",
+            "expected": 0,
+            "baselines": [
+              "500ms"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "to_country_xhttp"
+      },
+      {
+        "tag": "country_xhttp",
+        "selector": [
+          "country-xhttp"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "1500ms",
+            "expected": 0,
+            "baselines": [
+              "500ms"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "block"
       }
-    ]
+    ],
+    "domainMatcher": "hybrid",
+    "domainStrategy": "IPOnDemand"
   },
   "inbounds": [
     {
@@ -1270,6 +1521,20 @@
   ],
   "outbounds": [
     {
+      "tag": "to_country_tcp",
+      "protocol": "loopback",
+      "settings": {
+        "inboundTag": "country-tcp-fallback"
+      }
+    },
+    {
+      "tag": "to_country_xhttp",
+      "protocol": "loopback",
+      "settings": {
+        "inboundTag": "country-xhttp-fallback"
+      }
+    },
+    {
       "tag": "direct",
       "protocol": "freedom",
       "settings": {
@@ -1281,6 +1546,34 @@
       "protocol": "blackhole"
     }
   ],
+  "remnawave": {
+    "injectHosts": [
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^SERVER:EXIT:SE:GRPC$"
+        },
+        "tagPrefix": "country-grpc",
+        "selectFrom": "ALL"
+      },
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^SERVER:EXIT:SE:TCP$"
+        },
+        "tagPrefix": "country-tcp",
+        "selectFrom": "ALL"
+      },
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^SERVER:EXIT:SE:XHTTP$"
+        },
+        "tagPrefix": "country-xhttp",
+        "selectFrom": "ALL"
+      }
+    ]
+  },
   "burstObservatory": {
     "pingConfig": {
       "timeout": "2s",
@@ -1290,8 +1583,9 @@
       "connectivity": ""
     },
     "subjectSelector": [
-      "proxy",
-      "xhttp-fallback"
+      "country-grpc",
+      "country-tcp",
+      "country-xhttp"
     ]
   }
 }
