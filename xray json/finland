@@ -232,8 +232,6 @@
         "type": "field",
         "domain": [
           "geosite:category-ru",
-          "domain:mdm-print.ru",
-          "full:mx1.mdm-print.ru",
           "domain:kinopoisk.ru",
           "domain:kinopoisk-ru.clstorage.net",
           "domain:yandex",

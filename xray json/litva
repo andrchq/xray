@@ -252,9 +252,7 @@
       {
         "type": "field",
         "domain": [
-          "geosite:category-ru",
-          "domain:mdm-print.ru",
-          "full:mx1.mdm-print.ru"
+          "geosite:category-ru"
         ],
         "network": "tcp,udp",
         "outboundTag": "direct"
