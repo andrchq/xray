@@ -944,7 +944,7 @@
           "domain:emias.info"
         ],
         "network": "tcp,udp",
-        "outboundTag": "direct"
+        "balancerTag": "ru_direct_or_whl"
       },
       {
         "ip": [
@@ -952,7 +952,7 @@
         ],
         "type": "field",
         "network": "tcp,udp",
-        "outboundTag": "direct"
+        "balancerTag": "ru_direct_or_whl"
       },
       {
         "type": "field",
@@ -961,6 +961,16 @@
       }
     ],
     "balancers": [
+      {
+        "tag": "ru_direct_or_whl",
+        "selector": [
+          "direct"
+        ],
+        "strategy": {
+          "type": "roundRobin"
+        },
+        "fallbackTag": "to_whl_pool"
+      },
       {
         "tag": "grpc_countries",
         "selector": [
@@ -1155,6 +1165,7 @@
       "connectivity": ""
     },
     "subjectSelector": [
+      "direct",
       "server-grpc",
       "server-tcp",
       "server-xhttp",
