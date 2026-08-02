@@ -653,6 +653,14 @@
       {
         "type": "field",
         "domain": [
+          "domain:prsta.xyz"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
           "geosite:category-ru",
           "regexp:.*\\.ru$",
           "regexp:.*\\.su$",

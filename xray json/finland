@@ -1,15 +1,208 @@
 {
   "dns": {
-    "hosts": {
-      "one.one.one.one": [
-        "8.8.8.8",
-        "8.8.4.4"
-      ]
-    },
     "servers": [
-      "https://dns.google/dns-query"
+      {
+        "port": 53,
+        "address": "77.88.8.8",
+        "domains": [
+          "geosite:category-ru",
+          "regexp:.*\\.ru$",
+          "regexp:.*\\.su$",
+          "regexp:.*\\.xn--p1ai$",
+          "domain:yandex.com",
+          "domain:yandex.net",
+          "domain:yandex.st",
+          "domain:yastatic.net",
+          "domain:yandexcloud.net",
+          "domain:yandexgo.com",
+          "domain:yango.com",
+          "domain:yango.taxi",
+          "domain:yango.tech",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:userapi.com",
+          "domain:vkuservideo.com",
+          "domain:vkuservideo.net",
+          "domain:vkcs.cloud",
+          "domain:mail.ru",
+          "domain:my.com",
+          "domain:mycdn.me",
+          "domain:tamtam.chat",
+          "domain:youla.io",
+          "domain:ozon.com",
+          "domain:ozon.by",
+          "domain:ozon.kz",
+          "domain:ozon.com.by",
+          "domain:ozon.com.kz",
+          "domain:ozonusercontent.com",
+          "domain:ozonru.com",
+          "domain:ozonru.me",
+          "domain:wildberries.by",
+          "domain:wildberries.kz",
+          "domain:wildberries.am",
+          "domain:wildberries.ge",
+          "domain:wildberries.kg",
+          "domain:wildberries.uz",
+          "domain:wb.am",
+          "domain:wb.kz",
+          "domain:wb.kg",
+          "domain:paywb.com",
+          "domain:avito.st",
+          "domain:chizhik.club",
+          "domain:sberbank.com",
+          "domain:t.finance",
+          "domain:gazprombank.com",
+          "domain:gazprombank.investments",
+          "domain:vtb.com",
+          "domain:2gis.com",
+          "domain:2gis.kz",
+          "domain:2gis.ae",
+          "domain:bitrix24.com",
+          "domain:jivo.chat",
+          "domain:jivochat.com",
+          "domain:jivosite.com",
+          "domain:ngenix.net",
+          "domain:cdnvideo.net",
+          "domain:edgecenter.io",
+          "domain:qrator.net",
+          "domain:ddos-guard.net",
+          "domain:stormwall.pro",
+          "domain:stormwall.network",
+          "domain:selectel.com",
+          "domain:beget.com"
+        ],
+        "queryStrategy": "UseIPv4"
+      },
+      {
+        "port": 53,
+        "address": "77.88.8.1",
+        "domains": [
+          "geosite:category-ru",
+          "regexp:.*\\.ru$",
+          "regexp:.*\\.su$",
+          "regexp:.*\\.xn--p1ai$",
+          "domain:yandex.com",
+          "domain:yandex.net",
+          "domain:yandex.st",
+          "domain:yastatic.net",
+          "domain:yandexcloud.net",
+          "domain:yandexgo.com",
+          "domain:yango.com",
+          "domain:yango.taxi",
+          "domain:yango.tech",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:userapi.com",
+          "domain:vkuservideo.com",
+          "domain:vkuservideo.net",
+          "domain:vkcs.cloud",
+          "domain:mail.ru",
+          "domain:my.com",
+          "domain:mycdn.me",
+          "domain:tamtam.chat",
+          "domain:youla.io",
+          "domain:ozon.com",
+          "domain:ozon.by",
+          "domain:ozon.kz",
+          "domain:ozon.com.by",
+          "domain:ozon.com.kz",
+          "domain:ozonusercontent.com",
+          "domain:ozonru.com",
+          "domain:ozonru.me",
+          "domain:wildberries.by",
+          "domain:wildberries.kz",
+          "domain:wildberries.am",
+          "domain:wildberries.ge",
+          "domain:wildberries.kg",
+          "domain:wildberries.uz",
+          "domain:wb.am",
+          "domain:wb.kz",
+          "domain:wb.kg",
+          "domain:paywb.com",
+          "domain:avito.st",
+          "domain:chizhik.club",
+          "domain:sberbank.com",
+          "domain:t.finance",
+          "domain:gazprombank.com",
+          "domain:gazprombank.investments",
+          "domain:vtb.com",
+          "domain:2gis.com",
+          "domain:2gis.kz",
+          "domain:2gis.ae",
+          "domain:bitrix24.com",
+          "domain:jivo.chat",
+          "domain:jivochat.com",
+          "domain:jivosite.com",
+          "domain:ngenix.net",
+          "domain:cdnvideo.net",
+          "domain:edgecenter.io",
+          "domain:qrator.net",
+          "domain:ddos-guard.net",
+          "domain:stormwall.pro",
+          "domain:stormwall.network",
+          "domain:selectel.com",
+          "domain:beget.com"
+        ],
+        "queryStrategy": "UseIPv4"
+      },
+      {
+        "address": "https://1.1.1.1/dns-query",
+        "domains": [
+          "domain:chatgpt.com",
+          "domain:openai.com",
+          "domain:oaistatic.com",
+          "domain:oaiusercontent.com",
+          "domain:claude.ai",
+          "domain:anthropic.com",
+          "domain:gemini.google.com",
+          "domain:generativelanguage.googleapis.com",
+          "domain:aistudio.google.com",
+          "geosite:telegram",
+          "geosite:discord",
+          "domain:youtube.com",
+          "domain:youtu.be",
+          "domain:ytimg.com",
+          "domain:googlevideo.com",
+          "domain:youtubei.googleapis.com",
+          "domain:ipinfo.io",
+          "domain:ip-api.com",
+          "domain:ip-api.io",
+          "domain:ipify.org",
+          "domain:browserleaks.com",
+          "domain:whoer.net",
+          "domain:dnsleaktest.com",
+          "domain:2ip.ru",
+          "domain:2ip.io",
+          "domain:ipleak.net",
+          "domain:whatismyip.com",
+          "domain:whatismyipaddress.com",
+          "domain:ifconfig.me",
+          "domain:ifconfig.co",
+          "domain:ifconfig.io",
+          "domain:icanhazip.com",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:ip.sb",
+          "domain:ip.me",
+          "domain:ipwho.is",
+          "domain:ipwhois.io",
+          "domain:proxycheck.io",
+          "domain:vpnapi.io",
+          "domain:iphub.info",
+          "domain:ipqualityscore.com"
+        ],
+        "finalQuery": true,
+        "skipFallback": true,
+        "queryStrategy": "UseIPv4"
+      },
+      "https://1.1.1.1/dns-query",
+      "77.88.8.8",
+      "77.88.8.1"
     ],
-    "queryStrategy": "UseIPv4"
+    "disableCache": false,
+    "queryStrategy": "UseIPv4",
+    "disableFallback": false,
+    "disableFallbackIfMatch": false
   },
   "log": {
     "error": "",
@@ -47,6 +240,30 @@
           "country-xhttp-fallback"
         ],
         "balancerTag": "country_xhttp"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:prsta.xyz"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      },
+      {
+        "ip": [
+          "geoip:ru"
+        ],
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:category-ru"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "direct"
       },
       {
         "type": "field",
@@ -110,8 +327,7 @@
       {
         "type": "field",
         "domain": [
-          "geosite:telegram",
-          "domain:prsta.xyz"
+          "geosite:telegram"
         ],
         "network": "tcp,udp",
         "balancerTag": "country_grpc"
@@ -1188,7 +1404,7 @@
           "domain:ip-sonar.com"
         ],
         "network": "tcp,udp",
-        "balancerTag": "country_grpc"
+        "outboundTag": "direct"
       },
       {
         "type": "field",
@@ -1343,7 +1559,7 @@
           "pattern": "^SERVER:EXIT:FI:GRPC$"
         },
         "tagPrefix": "country-grpc",
-        "selectFrom": "HIDDEN"
+        "selectFrom": "ALL"
       },
       {
         "selector": {
@@ -1351,7 +1567,7 @@
           "pattern": "^SERVER:EXIT:FI:TCP$"
         },
         "tagPrefix": "country-tcp",
-        "selectFrom": "HIDDEN"
+        "selectFrom": "ALL"
       },
       {
         "selector": {
@@ -1359,7 +1575,7 @@
           "pattern": "^SERVER:EXIT:FI:XHTTP$"
         },
         "tagPrefix": "country-xhttp",
-        "selectFrom": "HIDDEN"
+        "selectFrom": "ALL"
       }
     ]
   },

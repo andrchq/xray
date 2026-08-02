@@ -1,0 +1,277 @@
+{
+  "dns": {
+    "servers": [
+      {
+        "address": "https://1.1.1.1/dns-query",
+        "domains": [
+          "geosite:telegram"
+        ],
+        "queryStrategy": "UseIPv4"
+      },
+      "77.88.8.8",
+      "77.88.8.1",
+      "1.1.1.1"
+    ],
+    "disableCache": false,
+    "queryStrategy": "UseIPv4",
+    "disableFallback": false,
+    "disableFallbackIfMatch": false
+  },
+  "remarks": "TELEGRAM ONLY — all countries + WHL fallback; all other traffic direct",
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "inboundTag": [
+          "tcp-fallback"
+        ],
+        "balancerTag": "tcp_countries"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "inboundTag": [
+          "xhttp-fallback"
+        ],
+        "balancerTag": "xhttp_countries"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "inboundTag": [
+          "whl-fallback"
+        ],
+        "balancerTag": "whl_bridge"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:prsta.xyz"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:telegram"
+        ],
+        "network": "tcp,udp",
+        "balancerTag": "grpc_countries"
+      },
+      {
+        "type": "field",
+        "ip": [
+          "geoip:telegram"
+        ],
+        "network": "tcp,udp",
+        "balancerTag": "grpc_countries"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      }
+    ],
+    "balancers": [
+      {
+        "tag": "grpc_countries",
+        "selector": [
+          "server-grpc"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "1500ms",
+            "expected": 0,
+            "baselines": [
+              "500ms"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "to_tcp_pool"
+      },
+      {
+        "tag": "tcp_countries",
+        "selector": [
+          "server-tcp"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "1500ms",
+            "expected": 0,
+            "baselines": [
+              "500ms"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "to_xhttp_pool"
+      },
+      {
+        "tag": "xhttp_countries",
+        "selector": [
+          "server-xhttp"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "1500ms",
+            "expected": 0,
+            "baselines": [
+              "500ms"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "to_whl_pool"
+      },
+      {
+        "tag": "whl_bridge",
+        "selector": [
+          "bridge"
+        ],
+        "strategy": {
+          "type": "leastLoad",
+          "settings": {
+            "maxRTT": "2s",
+            "expected": 1,
+            "baselines": [
+              "1s"
+            ],
+            "tolerance": 0.05
+          }
+        },
+        "fallbackTag": "block"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    },
+    {
+      "tag": "http",
+      "port": 10809,
+      "listen": "127.0.0.1",
+      "protocol": "http",
+      "settings": {
+        "allowTransparent": false
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "to_tcp_pool",
+      "protocol": "loopback",
+      "settings": {
+        "inboundTag": "tcp-fallback"
+      }
+    },
+    {
+      "tag": "to_xhttp_pool",
+      "protocol": "loopback",
+      "settings": {
+        "inboundTag": "xhttp-fallback"
+      }
+    },
+    {
+      "tag": "to_whl_pool",
+      "protocol": "loopback",
+      "settings": {
+        "inboundTag": "whl-fallback"
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4"
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole"
+    }
+  ],
+  "remnawave": {
+    "injectHosts": [
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^SERVER:EXIT:[A-Z]{2}:GRPC$"
+        },
+        "tagPrefix": "server-grpc",
+        "selectFrom": "ALL"
+      },
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^SERVER:EXIT:[A-Z]{2}:TCP$"
+        },
+        "tagPrefix": "server-tcp",
+        "selectFrom": "ALL"
+      },
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^SERVER:EXIT:[A-Z]{2}:XHTTP$"
+        },
+        "tagPrefix": "server-xhttp",
+        "selectFrom": "ALL"
+      },
+      {
+        "selector": {
+          "type": "tagRegex",
+          "pattern": "^BRIDGE:WHL$"
+        },
+        "tagPrefix": "bridge",
+        "selectFrom": "HIDDEN"
+      }
+    ]
+  },
+  "burstObservatory": {
+    "pingConfig": {
+      "timeout": "2s",
+      "interval": "30s",
+      "sampling": 1,
+      "destination": "https://www.gstatic.com/generate_204",
+      "connectivity": ""
+    },
+    "subjectSelector": [
+      "server-grpc",
+      "server-tcp",
+      "server-xhttp",
+      "bridge"
+    ]
+  }
+}

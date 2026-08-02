@@ -242,6 +242,14 @@
         "balancerTag": "country_xhttp"
       },
       {
+        "type": "field",
+        "domain": [
+          "domain:prsta.xyz"
+        ],
+        "network": "tcp,udp",
+        "outboundTag": "direct"
+      },
+      {
         "ip": [
           "geoip:ru"
         ],
@@ -319,8 +327,7 @@
       {
         "type": "field",
         "domain": [
-          "geosite:telegram",
-          "domain:prsta.xyz"
+          "geosite:telegram"
         ],
         "network": "tcp,udp",
         "balancerTag": "country_grpc"
