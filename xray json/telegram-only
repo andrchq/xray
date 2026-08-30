@@ -26,6 +26,18 @@
     "disableFallbackIfMatch": false
   },
   "remarks": "TELEGRAM ONLY — all countries + WHL fallback; all other traffic direct",
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 60,
+        "connIdle": 600
+      },
+      "8": {
+        "handshake": 60,
+        "connIdle": 600
+      }
+    }
+  },
   "routing": {
     "domainStrategy": "IPOnDemand",
     "rules": [
@@ -92,12 +104,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "1500ms",
+            "maxRTT": "3s",
             "expected": 0,
             "baselines": [
-              "500ms"
+              "1s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.2
           }
         },
         "fallbackTag": "to_tcp_pool"
@@ -110,12 +122,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "1500ms",
+            "maxRTT": "3s",
             "expected": 0,
             "baselines": [
-              "500ms"
+              "1s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.2
           }
         },
         "fallbackTag": "to_xhttp_pool"
@@ -128,12 +140,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "1500ms",
+            "maxRTT": "3s",
             "expected": 0,
             "baselines": [
-              "500ms"
+              "1s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.2
           }
         },
         "fallbackTag": "to_whl_pool"
@@ -146,12 +158,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "2s",
+            "maxRTT": "5s",
             "expected": 1,
             "baselines": [
-              "1s"
+              "3s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.4
           }
         },
         "fallbackTag": "block"
@@ -269,11 +281,11 @@
   },
   "burstObservatory": {
     "pingConfig": {
-      "timeout": "2s",
-      "interval": "30s",
-      "sampling": 1,
+      "timeout": "5s",
+      "interval": "1m",
+      "sampling": 5,
       "destination": "https://www.gstatic.com/generate_204",
-      "connectivity": ""
+      "connectivity": "https://cp.cloudflare.com/generate_204"
     },
     "subjectSelector": [
       "server-grpc",

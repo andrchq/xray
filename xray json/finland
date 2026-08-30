@@ -209,6 +209,18 @@
     "access": "",
     "loglevel": "warning"
   },
+  "policy": {
+    "levels": {
+      "0": {
+        "handshake": 60,
+        "connIdle": 600
+      },
+      "8": {
+        "handshake": 60,
+        "connIdle": 600
+      }
+    }
+  },
   "routing": {
     "rules": [
       {
@@ -1457,12 +1469,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "1500ms",
-            "expected": 0,
+            "maxRTT": "3s",
+            "expected": 2,
             "baselines": [
-              "500ms"
+              "1s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.34
           }
         },
         "fallbackTag": "to_country_tcp"
@@ -1475,12 +1487,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "1500ms",
-            "expected": 0,
+            "maxRTT": "3s",
+            "expected": 2,
             "baselines": [
-              "500ms"
+              "1s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.34
           }
         },
         "fallbackTag": "to_country_xhttp"
@@ -1493,12 +1505,12 @@
         "strategy": {
           "type": "leastLoad",
           "settings": {
-            "maxRTT": "1500ms",
-            "expected": 0,
+            "maxRTT": "3s",
+            "expected": 2,
             "baselines": [
-              "500ms"
+              "1s"
             ],
-            "tolerance": 0.05
+            "tolerance": 0.34
           }
         },
         "fallbackTag": "block"
@@ -1602,11 +1614,11 @@
   },
   "burstObservatory": {
     "pingConfig": {
-      "timeout": "2s",
-      "interval": "30s",
-      "sampling": 1,
+      "timeout": "5s",
+      "interval": "1m",
+      "sampling": 5,
       "destination": "https://www.gstatic.com/generate_204",
-      "connectivity": ""
+      "connectivity": "https://cp.cloudflare.com/generate_204"
     },
     "subjectSelector": [
       "country-grpc",

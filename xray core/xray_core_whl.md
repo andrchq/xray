@@ -892,8 +892,8 @@
   "policy": {
     "levels": {
       "0": {
-        "connIdle": 180,
-        "handshake": 4,
+        "connIdle": 600,
+        "handshake": 60,
         "bufferSize": 16,
         "uplinkOnly": 1,
         "downlinkOnly": 1,
