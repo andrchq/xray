@@ -2,26 +2,6 @@
   "log": {
     "loglevel": "warning"
   },
-  "policy": {
-    "levels": {
-      "0": {
-        "handshake": 4,
-        "connIdle": 180,
-        "uplinkOnly": 1,
-        "downlinkOnly": 1,
-        "statsUserUplink": false,
-        "statsUserDownlink": false,
-        "statsUserOnline": false,
-        "bufferSize": 16
-      }
-    },
-    "system": {
-      "statsInboundUplink": false,
-      "statsInboundDownlink": false,
-      "statsOutboundUplink": false,
-      "statsOutboundDownlink": false
-    }
-  },
   "inbounds": [
     {
       "tag": "WHL-I",
@@ -204,6 +184,88 @@
         ]
       },
       "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "stats.vk-portal.net"
+        },
+        "realitySettings": {
+          "dest": "stats.vk-portal.net:443",
+          "show": false,
+          "xver": 0,
+          "shortIds": [
+            "26e453941a1122be",
+            "bfdf1757c233671c",
+            "3a6db152aa2c21df"
+          ],
+          "publicKey": "SYX_xYWe6Xw1aZZyPhNrAi4XqGu753gx7Kj8J32G0F0",
+          "privateKey": "47QC-z8AEqSOzy_jLuBCgFi2j-X_R1smEfRLPM0dR-A",
+          "serverNames": [
+            "stats.vk-portal.net"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "WHL-VI",
+      "port": 26443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "stats.vk-portal.net"
+        },
+        "realitySettings": {
+          "dest": "stats.vk-portal.net:443",
+          "show": false,
+          "xver": 0,
+          "shortIds": [
+            "26e453941a1122be",
+            "bfdf1757c233671c",
+            "3a6db152aa2c21df"
+          ],
+          "publicKey": "aT9_4vsjfbMFiZNz6fDPLLtCLPLX3_rx5K9XraT8yTs",
+          "privateKey": "mR8VzgqT0BxBw-dmBFspwvUf-CC4rnO2v9tPIAGT9Bk",
+          "serverNames": [
+            "stats.vk-portal.net"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "WHL-VII",
+      "port": 27443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
         "network": "xhttp",
         "security": "reality",
         "xhttpSettings": {
@@ -228,8 +290,8 @@
       }
     },
     {
-      "tag": "WHL-VI",
-      "port": 26443,
+      "tag": "WHL-VIII",
+      "port": 28443,
       "listen": "0.0.0.0",
       "protocol": "vless",
       "settings": {
@@ -267,6 +329,24 @@
             "sun6-20.userapi.com"
           ]
         }
+      }
+    },
+    {
+      "tag": "LOCAL-PROXY",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "mixed",
+      "settings": {
+        "udp": false,
+        "auth": "noauth"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
       }
     }
   ],
@@ -338,6 +418,13 @@
     "rules": [
       {
         "type": "field",
+        "inboundTag": [
+          "LOCAL-PROXY"
+        ],
+        "outboundTag": "DBL-POLAND"
+      },
+      {
+        "type": "field",
         "domain": [
           "geosite:telegram"
         ],
@@ -347,7 +434,9 @@
           "WHL-III",
           "WHL-IV",
           "WHL-V",
-          "WHL-VI"
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
         ],
         "outboundTag": "DBL-POLAND"
       },
@@ -362,7 +451,9 @@
           "WHL-III",
           "WHL-IV",
           "WHL-V",
-          "WHL-VI"
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
         ],
         "outboundTag": "DBL-POLAND"
       },
@@ -697,7 +788,9 @@
           "WHL-III",
           "WHL-IV",
           "WHL-V",
-          "WHL-VI"
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
         ],
         "outboundTag": "WHL-OUT"
       },
@@ -712,7 +805,9 @@
           "WHL-III",
           "WHL-IV",
           "WHL-V",
-          "WHL-VI"
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
         ],
         "outboundTag": "WHL-OUT"
       },
@@ -726,7 +821,9 @@
           "WHL-III",
           "WHL-IV",
           "WHL-V",
-          "WHL-VI"
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
         ],
         "outboundTag": "DBL-POLAND"
       },
@@ -769,7 +866,9 @@
           "WHL-III",
           "WHL-IV",
           "WHL-V",
-          "WHL-VI"
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
         ],
         "outboundTag": "DBL-POLAND"
       },
@@ -789,5 +888,25 @@
       }
     ],
     "domainStrategy": "IPIfNonMatch"
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "connIdle": 180,
+        "handshake": 4,
+        "bufferSize": 16,
+        "uplinkOnly": 1,
+        "downlinkOnly": 1,
+        "statsUserOnline": false,
+        "statsUserUplink": false,
+        "statsUserDownlink": false
+      }
+    },
+    "system": {
+      "statsInboundUplink": false,
+      "statsOutboundUplink": false,
+      "statsInboundDownlink": false,
+      "statsOutboundDownlink": false
+    }
   }
 }

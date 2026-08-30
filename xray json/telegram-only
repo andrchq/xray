@@ -2,6 +2,14 @@
   "dns": {
     "servers": [
       {
+        "address": "localhost",
+        "domains": [
+          "domain:prsta.xyz"
+        ],
+        "queryStrategy": "UseIPv4",
+        "skipFallback": true
+      },
+      {
         "address": "https://1.1.1.1/dns-query",
         "domains": [
           "geosite:telegram"

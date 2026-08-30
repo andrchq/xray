@@ -109,6 +109,14 @@
       }
     },
     {
+      "tag": "WARP",
+      "protocol": "socks",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 40000
+      }
+    },
+    {
       "tag": "BLOCK",
       "protocol": "blackhole"
     }
@@ -128,6 +136,53 @@
         ],
         "type": "field",
         "outboundTag": "BLOCK"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:deepmind.com",
+          "domain:deepmind.google",
+          "domain:geller-pa.googleapis.com",
+          "domain:generativelanguage.googleapis.com",
+          "domain:proactivebackend-pa.googleapis.com",
+          "domain:robinfrontend-pa.googleapis.com",
+          "full:ai.google.dev",
+          "full:alkalicore-pa.clients6.google.com",
+          "full:alkalimakersuite-pa.clients6.google.com",
+          "full:webchannel-alkalimakersuite-pa.clients6.google.com",
+          "domain:generativeai.google",
+          "domain:makersuite.google.com",
+          "domain:ai.studio",
+          "domain:aistudio.google.com",
+          "domain:bard.google.com",
+          "domain:gemini.google",
+          "domain:gemini.google.com",
+          "domain:gemini.gstatic.com",
+          "full:cloudaicompanion.googleapis.com",
+          "full:cloudcode-pa.googleapis.com",
+          "full:daily-cloudcode-pa.googleapis.com",
+          "full:notebooklm-pa.googleapis.com",
+          "full:notebooklm.googleapis.com",
+          "domain:notebook.google.com",
+          "domain:notebooklm.google",
+          "domain:notebooklm.google.com",
+          "domain:jules.google",
+          "domain:jules.google.com",
+          "domain:labs.google",
+          "domain:labs.google.com",
+          "domain:flow.google",
+          "domain:aisandbox-pa.googleapis.com",
+          "domain:aicode.googleapis.com",
+          "domain:aida.googleapis.com",
+          "domain:opal.google",
+          "domain:opal.google.com",
+          "full:antigravity-pa.googleapis.com",
+          "full:antigravity.googleapis.com",
+          "domain:antigravity.google",
+          "domain:antigravity-unleash.goog",
+          "domain:stitch.withgoogle.com"
+        ],
+        "outboundTag": "WARP"
       }
     ],
     "domainStrategy": "IPIfNonMatch"

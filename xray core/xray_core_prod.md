@@ -1,26 +1,6 @@
 {
   "log": {
-    "loglevel": "warning"
-  },
-  "policy": {
-    "levels": {
-      "0": {
-        "handshake": 4,
-        "connIdle": 180,
-        "uplinkOnly": 1,
-        "downlinkOnly": 1,
-        "statsUserUplink": false,
-        "statsUserDownlink": false,
-        "statsUserOnline": false,
-        "bufferSize": 16
-      }
-    },
-    "system": {
-      "statsInboundUplink": false,
-      "statsInboundDownlink": false,
-      "statsOutboundUplink": false,
-      "statsOutboundDownlink": false
-    }
+    "loglevel": "info"
   },
   "inbounds": [
     {
@@ -190,6 +170,89 @@
       }
     },
     {
+      "tag": "[FINLAND-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nfl.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "shortIds": [
+            "dff01a2a94e88950",
+            "9eca122382fe8dc4",
+            "130e2b612e34015f"
+          ],
+          "publicKey": "YcnwDUhI72ALlzlbTC9hhJHaLj2AoAg0KfDXjBNM8W4",
+          "privateKey": "kwNjFWOVylvNMEh9GP-UKkzwjRMhKUWCsPcWD4hURBs",
+          "serverNames": [
+            "nfl.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[FINLAND-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/finland"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "shortIds": [
+            "dff01a2a94e88950",
+            "9eca122382fe8dc4",
+            "130e2b612e34015f"
+          ],
+          "publicKey": "OkE_mwJniCZp1fRjwTypraCpO9RZ9E5D5ccSBVukQlc",
+          "privateKey": "o2j66dO5s1ceJgC-hUzW-tyYbfxTROf9VZbwKcgk3sk",
+          "serverNames": [
+            "nfl.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
       "tag": "[GERMANY-GRPC]",
       "port": 443,
       "listen": "0.0.0.0",
@@ -268,6 +331,89 @@
           "privateKey": "7GWqHAyIIaCapSPllztzTYJYezKLzUT-X6It3VNg5CQ",
           "serverNames": [
             "nge.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[GERMANY-2-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nge2.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "shortIds": [
+            "471aa1d03528cc9a",
+            "8740f92393b86ee7",
+            "684542ba0de599bb"
+          ],
+          "publicKey": "IboKBGPBo9weOy1oeNoMylq_fUcZ2sx-hoTY7omY5SQ",
+          "privateKey": "3cUWQn-4U6j89rf_mteItOLtQEmUlKxy1Q4HhkdnzUM",
+          "serverNames": [
+            "nge2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[GERMANY-2-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/germany-2"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "shortIds": [
+            "471aa1d03528cc9a",
+            "8740f92393b86ee7",
+            "684542ba0de599bb"
+          ],
+          "publicKey": "K2WgOSriDWibFvsUnL-pGAxLN6_cFsxfQh1mwlDJokg",
+          "privateKey": "_qKWanLya4aeDoXSOs9S_IZ0axCuP8_1lF_P1-BJ4xs",
+          "serverNames": [
+            "nge2.prsta.xyz"
           ]
         }
       }
@@ -522,6 +668,172 @@
       }
     },
     {
+      "tag": "[RUSSIA-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nru.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "password": "ioj8LG9icY_xS3jtQcz14c6w1UhbR2xYWHVXEOSVeB8",
+          "shortIds": [
+            "a679c7529afb507b",
+            "bebe20031b0fadee",
+            "7a5f8d222c5f8556"
+          ],
+          "privateKey": "zpQojH687mYjS8weL5hYZU1QA4F3ibfh1WDcnCoH028",
+          "serverNames": [
+            "nru.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[RUSSIA-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/russia"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "password": "ioj8LG9icY_xS3jtQcz14c6w1UhbR2xYWHVXEOSVeB8",
+          "shortIds": [
+            "a679c7529afb507b",
+            "bebe20031b0fadee",
+            "7a5f8d222c5f8556"
+          ],
+          "privateKey": "zpQojH687mYjS8weL5hYZU1QA4F3ibfh1WDcnCoH028",
+          "serverNames": [
+            "nru.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[RUSSIA-2-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nru2.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "password": "jc5DYqUk_-lB1wcg0mVlSYwJ27XR2pQUMz33lEeJGm8",
+          "shortIds": [
+            "f8991e0f84e7b425",
+            "39498b932a6fcbc1",
+            "e877db3b199f238d"
+          ],
+          "privateKey": "CoOV_nIpc6Ls9X2O2YacVqQdwWNjVA0BuxjBh-jJyro",
+          "serverNames": [
+            "nru2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[RUSSIA-2-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/russia2"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "password": "jc5DYqUk_-lB1wcg0mVlSYwJ27XR2pQUMz33lEeJGm8",
+          "shortIds": [
+            "f8991e0f84e7b425",
+            "39498b932a6fcbc1",
+            "e877db3b199f238d"
+          ],
+          "privateKey": "CoOV_nIpc6Ls9X2O2YacVqQdwWNjVA0BuxjBh-jJyro",
+          "serverNames": [
+            "nru2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
       "tag": "[TG-ONLY]",
       "port": 31443,
       "listen": "0.0.0.0",
@@ -588,6 +900,47 @@
       }
     },
     {
+      "tag": "WARP",
+      "protocol": "socks",
+      "settings": {
+        "port": 40000,
+        "address": "127.0.0.1"
+      }
+    },
+    {
+      "tag": "YOUTUBE-RU",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "nru2.prsta.xyz",
+            "port": 443,
+            "users": [
+              {
+                "id": "51e2536f-01f8-42f9-81e0-52dc3cf0784a",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nru2.prsta.xyz",
+          "authority": "nru2.prsta.xyz"
+        },
+        "realitySettings": {
+          "fingerprint": "safari",
+          "serverName": "nru2.prsta.xyz",
+          "publicKey": "jc5DYqUk_-lB1wcg0mVlSYwJ27XR2pQUMz33lEeJGm8",
+          "shortId": "f8991e0f84e7b425",
+          "spiderX": ""
+        }
+      }
+    },
+    {
       "tag": "SS_OUT",
       "protocol": "shadowsocks",
       "settings": {
@@ -621,6 +974,25 @@
       {
         "type": "field",
         "domain": [
+          "domain:youtube.com",
+          "domain:youtu.be",
+          "domain:youtube-nocookie.com",
+          "domain:ytimg.com",
+          "domain:googlevideo.com",
+          "domain:youtubei.googleapis.com",
+          "domain:youtube.googleapis.com",
+          "domain:ggpht.com"
+        ],
+        "inboundTag": [
+          "[RUSSIA-2-GRPC]",
+          "[RUSSIA-2-XHTTP]"
+        ],
+        "outboundTag": "DIRECT",
+        "ruleTag": "youtube-ru2-exit"
+      },
+      {
+        "type": "field",
+        "domain": [
           "geosite:telegram",
           "domain:prsta.xyz"
         ],
@@ -649,17 +1021,92 @@
       {
         "type": "field",
         "domain": [
+          "domain:youtube.com",
+          "domain:youtu.be",
+          "domain:youtube-nocookie.com",
+          "domain:ytimg.com",
+          "domain:googlevideo.com",
+          "domain:youtubei.googleapis.com",
+          "domain:youtube.googleapis.com",
+          "domain:ggpht.com"
+        ],
+        "outboundTag": "YOUTUBE-RU",
+        "ruleTag": "youtube-ru"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "domain:deepmind.com",
+          "domain:deepmind.google",
+          "domain:geller-pa.googleapis.com",
+          "domain:generativelanguage.googleapis.com",
+          "domain:proactivebackend-pa.googleapis.com",
+          "domain:robinfrontend-pa.googleapis.com",
+          "full:ai.google.dev",
+          "full:alkalicore-pa.clients6.google.com",
+          "full:alkalimakersuite-pa.clients6.google.com",
+          "full:webchannel-alkalimakersuite-pa.clients6.google.com",
+          "domain:generativeai.google",
+          "domain:makersuite.google.com",
+          "domain:ai.studio",
+          "domain:aistudio.google.com",
+          "domain:bard.google.com",
+          "domain:gemini.google",
+          "domain:gemini.google.com",
+          "domain:gemini.gstatic.com",
+          "full:cloudaicompanion.googleapis.com",
+          "full:cloudcode-pa.googleapis.com",
+          "full:daily-cloudcode-pa.googleapis.com",
+          "full:notebooklm-pa.googleapis.com",
+          "full:notebooklm.googleapis.com",
+          "domain:notebook.google.com",
+          "domain:notebooklm.google",
+          "domain:notebooklm.google.com",
+          "domain:jules.google",
+          "domain:jules.google.com",
+          "domain:labs.google",
+          "domain:labs.google.com",
+          "domain:flow.google",
+          "domain:aisandbox-pa.googleapis.com",
+          "domain:aicode.googleapis.com",
+          "domain:aida.googleapis.com",
+          "domain:opal.google",
+          "domain:opal.google.com",
+          "full:antigravity-pa.googleapis.com",
+          "full:antigravity.googleapis.com",
+          "domain:antigravity.google",
+          "domain:antigravity-unleash.goog",
+          "domain:stitch.withgoogle.com"
+        ],
+        "ruleTag": "gemini-warp",
+        "outboundTag": "WARP"
+      },
+      {
+        "type": "field",
+        "domain": [
           "geosite:telegram"
         ],
         "inboundTag": [
           "[LITVA-GRPC]",
           "[LITVA-XHTTP]",
+          "[LITVA-2-GRPC]",
+          "[LITVA-2-XHTTP]",
+          "[FINLAND-GRPC]",
+          "[FINLAND-XHTTP]",
           "[GERMANY-GRPC]",
           "[GERMANY-XHTTP]",
+          "[GERMANY-2-GRPC]",
+          "[GERMANY-2-XHTTP]",
           "[SWEDEN-GRPC]",
           "[SWEDEN-XHTTP]",
+          "[SWEDEN-2-GRPC]",
+          "[SWEDEN-2-XHTTP]",
           "[USA-GRPC]",
-          "[USA-XHTTP]"
+          "[USA-XHTTP]",
+          "[RUSSIA-GRPC]",
+          "[RUSSIA-XHTTP]",
+          "[RUSSIA-2-GRPC]",
+          "[RUSSIA-2-XHTTP]"
         ],
         "outboundTag": "DIRECT"
       },
@@ -671,12 +1118,24 @@
         "inboundTag": [
           "[LITVA-GRPC]",
           "[LITVA-XHTTP]",
+          "[LITVA-2-GRPC]",
+          "[LITVA-2-XHTTP]",
+          "[FINLAND-GRPC]",
+          "[FINLAND-XHTTP]",
           "[GERMANY-GRPC]",
           "[GERMANY-XHTTP]",
+          "[GERMANY-2-GRPC]",
+          "[GERMANY-2-XHTTP]",
           "[SWEDEN-GRPC]",
           "[SWEDEN-XHTTP]",
+          "[SWEDEN-2-GRPC]",
+          "[SWEDEN-2-XHTTP]",
           "[USA-GRPC]",
-          "[USA-XHTTP]"
+          "[USA-XHTTP]",
+          "[RUSSIA-GRPC]",
+          "[RUSSIA-XHTTP]",
+          "[RUSSIA-2-GRPC]",
+          "[RUSSIA-2-XHTTP]"
         ],
         "outboundTag": "DIRECT"
       },
@@ -711,5 +1170,25 @@
       }
     ],
     "domainStrategy": "IPIfNonMatch"
+  },
+  "policy": {
+    "levels": {
+      "0": {
+        "connIdle": 180,
+        "handshake": 4,
+        "bufferSize": 16,
+        "uplinkOnly": 1,
+        "downlinkOnly": 1,
+        "statsUserOnline": false,
+        "statsUserUplink": false,
+        "statsUserDownlink": false
+      }
+    },
+    "system": {
+      "statsInboundUplink": false,
+      "statsOutboundUplink": false,
+      "statsInboundDownlink": false,
+      "statsOutboundDownlink": false
+    }
   }
 }
