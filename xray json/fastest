@@ -1202,7 +1202,7 @@
       {
         "selector": {
           "type": "tagRegex",
-          "pattern": "^SERVER:EXIT:[A-Z]{2}:GRPC$"
+          "pattern": "^SERVER:EXIT:(?!RU:)[A-Z]{2}:GRPC$"
         },
         "tagPrefix": "server-grpc",
         "selectFrom": "ALL"
@@ -1210,7 +1210,7 @@
       {
         "selector": {
           "type": "tagRegex",
-          "pattern": "^SERVER:EXIT:[A-Z]{2}:TCP$"
+          "pattern": "^SERVER:EXIT:(?!RU:)[A-Z]{2}:TCP$"
         },
         "tagPrefix": "server-tcp",
         "selectFrom": "ALL"
@@ -1218,7 +1218,7 @@
       {
         "selector": {
           "type": "tagRegex",
-          "pattern": "^SERVER:EXIT:[A-Z]{2}:XHTTP$"
+          "pattern": "^SERVER:EXIT:(?!RU:)[A-Z]{2}:XHTTP$"
         },
         "tagPrefix": "server-xhttp",
         "selectFrom": "ALL"

@@ -908,39 +908,6 @@
       }
     },
     {
-      "tag": "YOUTUBE-RU",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "nru2.prsta.xyz",
-            "port": 443,
-            "users": [
-              {
-                "id": "51e2536f-01f8-42f9-81e0-52dc3cf0784a",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "grpc",
-        "security": "reality",
-        "grpcSettings": {
-          "serviceName": "nru2.prsta.xyz",
-          "authority": "nru2.prsta.xyz"
-        },
-        "realitySettings": {
-          "fingerprint": "safari",
-          "serverName": "nru2.prsta.xyz",
-          "publicKey": "jc5DYqUk_-lB1wcg0mVlSYwJ27XR2pQUMz33lEeJGm8",
-          "shortId": "f8991e0f84e7b425",
-          "spiderX": ""
-        }
-      }
-    },
-    {
       "tag": "SS_OUT",
       "protocol": "shadowsocks",
       "settings": {
@@ -974,25 +941,6 @@
       {
         "type": "field",
         "domain": [
-          "domain:youtube.com",
-          "domain:youtu.be",
-          "domain:youtube-nocookie.com",
-          "domain:ytimg.com",
-          "domain:googlevideo.com",
-          "domain:youtubei.googleapis.com",
-          "domain:youtube.googleapis.com",
-          "domain:ggpht.com"
-        ],
-        "inboundTag": [
-          "[RUSSIA-2-GRPC]",
-          "[RUSSIA-2-XHTTP]"
-        ],
-        "outboundTag": "DIRECT",
-        "ruleTag": "youtube-ru2-exit"
-      },
-      {
-        "type": "field",
-        "domain": [
           "geosite:telegram",
           "domain:prsta.xyz"
         ],
@@ -1017,21 +965,6 @@
           "[TG-ONLY]"
         ],
         "outboundTag": "BLOCK"
-      },
-      {
-        "type": "field",
-        "domain": [
-          "domain:youtube.com",
-          "domain:youtu.be",
-          "domain:youtube-nocookie.com",
-          "domain:ytimg.com",
-          "domain:googlevideo.com",
-          "domain:youtubei.googleapis.com",
-          "domain:youtube.googleapis.com",
-          "domain:ggpht.com"
-        ],
-        "outboundTag": "YOUTUBE-RU",
-        "ruleTag": "youtube-ru"
       },
       {
         "type": "field",
