@@ -602,7 +602,6 @@
     "disableFallback": false,
     "disableFallbackIfMatch": false
   },
-  "remarks": "IDEAL_MERGED_REMNAWAVE_BASED_ON_CONFIG2",
   "policy": {
     "levels": {
       "0": {
@@ -669,6 +668,14 @@
         ],
         "network": "tcp,udp",
         "outboundTag": "direct"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "full:mx1.mdm-print.ru"
+        ],
+        "network": "tcp,udp",
+        "balancerTag": "grpc_countries"
       },
       {
         "type": "field",
@@ -1236,10 +1243,10 @@
   "burstObservatory": {
     "pingConfig": {
       "timeout": "5s",
-      "interval": "1m",
-      "sampling": 5,
+      "interval": "30s",
+      "sampling": 3,
       "destination": "https://www.gstatic.com/generate_204",
-      "connectivity": "https://cp.cloudflare.com/generate_204"
+      "connectivity": ""
     },
     "subjectSelector": [
       "direct",

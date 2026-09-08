@@ -460,6 +460,23 @@
       {
         "type": "field",
         "domain": [
+          "full:mx1.mdm-print.ru"
+        ],
+        "inboundTag": [
+          "WHL-I",
+          "WHL-II",
+          "WHL-III",
+          "WHL-IV",
+          "WHL-V",
+          "WHL-VI",
+          "WHL-VII",
+          "WHL-VIII"
+        ],
+        "outboundTag": "DBL-POLAND"
+      },
+      {
+        "type": "field",
+        "domain": [
           "geosite:category-ru",
           "regexp:.*\\.ru$",
           "regexp:.*\\.su$",

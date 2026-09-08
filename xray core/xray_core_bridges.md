@@ -140,6 +140,7 @@
       {
         "type": "field",
         "domain": [
+          "full:mx1.mdm-print.ru",
           "domain:deepmind.com",
           "domain:deepmind.google",
           "domain:geller-pa.googleapis.com",

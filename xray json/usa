@@ -264,6 +264,14 @@
       {
         "type": "field",
         "domain": [
+          "full:mx1.mdm-print.ru"
+        ],
+        "network": "tcp,udp",
+        "balancerTag": "country_grpc"
+      },
+      {
+        "type": "field",
+                "domain": [
           "domain:bytedapm.com", "domain:bytegecko-i18n.com", "domain:byteintlapi.com", "domain:byteoversea.com",
           "domain:byteoversea.net", "domain:bytefcdn-oversea.com", "domain:ibytedtos.com", "domain:ibyteimg.com",
           "domain:ipstatp.com", "domain:isnssdk.com", "domain:muscdn.com", "domain:musical.ly", "domain:pstatp.com",
@@ -1615,10 +1623,10 @@
   "burstObservatory": {
     "pingConfig": {
       "timeout": "5s",
-      "interval": "1m",
-      "sampling": 5,
+      "interval": "30s",
+      "sampling": 3,
       "destination": "https://www.gstatic.com/generate_204",
-      "connectivity": "https://cp.cloudflare.com/generate_204"
+      "connectivity": ""
     },
     "subjectSelector": [
       "country-grpc",

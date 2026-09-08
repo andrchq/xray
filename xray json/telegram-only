@@ -25,7 +25,6 @@
     "disableFallback": false,
     "disableFallbackIfMatch": false
   },
-  "remarks": "TELEGRAM ONLY — all countries + WHL fallback; all other traffic direct",
   "policy": {
     "levels": {
       "0": {
@@ -282,10 +281,10 @@
   "burstObservatory": {
     "pingConfig": {
       "timeout": "5s",
-      "interval": "1m",
-      "sampling": 5,
+      "interval": "30s",
+      "sampling": 3,
       "destination": "https://www.gstatic.com/generate_204",
-      "connectivity": "https://cp.cloudflare.com/generate_204"
+      "connectivity": ""
     },
     "subjectSelector": [
       "server-grpc",
