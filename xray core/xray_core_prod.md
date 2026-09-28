@@ -170,6 +170,89 @@
       }
     },
     {
+      "tag": "[POLAND-GRPC]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "npl2.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "password": "nNKsZBjK-GT33C0fMzkhgDNKj-wlHe_6dkFeB8HklxY",
+          "shortIds": [
+            "f1ea13891cf490f5",
+            "312c9a905b81a8cb",
+            "036ed5d2f9afd2d9"
+          ],
+          "privateKey": "JiIqGsR3N8LSP8lrvnW5cJGFu9Tqgr3uuJNvKr-I7Zc",
+          "serverNames": [
+            "npl2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[POLAND-XHTTP]",
+      "port": 8443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "xhttp",
+        "security": "reality",
+        "xhttpSettings": {
+          "path": "/api/v2/updates/poland"
+        },
+        "realitySettings": {
+          "show": false,
+          "xver": 0,
+          "target": "127.0.0.1:9443",
+          "spiderX": "/",
+          "password": "f3WsxhgNKHD6z134wtPfXMDUtm32P6UMWkJK2Uheh3Y",
+          "shortIds": [
+            "17db9e980bd341a4",
+            "a87e1d60b675f718",
+            "4ec27d1497dd9033"
+          ],
+          "privateKey": "GbiG_Pv-l5l2yTCVAD5K-TA3vAX5ukAmzYZ92hr-2ZQ",
+          "serverNames": [
+            "npl2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
       "tag": "[FINLAND-GRPC]",
       "port": 443,
       "listen": "0.0.0.0",
@@ -414,6 +497,47 @@
           "privateKey": "_qKWanLya4aeDoXSOs9S_IZ0axCuP8_1lF_P1-BJ4xs",
           "serverNames": [
             "nge2.prsta.xyz"
+          ]
+        }
+      }
+    },
+    {
+      "tag": "[GERMANY-2-TEST]",
+      "port": 443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "streamSettings": {
+        "network": "grpc",
+        "security": "reality",
+        "grpcSettings": {
+          "serviceName": "nff.prsta.xyz"
+        },
+        "realitySettings": {
+          "dest": "127.0.0.1:9443",
+          "show": false,
+          "xver": 0,
+          "password": "SofN9xNZP3E4-yeJfczK8BQlZB0y0uVZw7TQdaNNBhE",
+          "shortIds": [
+            "471aa1d03528cc9a",
+            "8740f92393b86ee7",
+            "684542ba0de599bb"
+          ],
+          "privateKey": "oPvc1S2hpvewdmCZGViNI4HdEt3UAFz3BZGcgVFyTqA",
+          "serverNames": [
+            "nff.prsta.xyz"
           ]
         }
       }
@@ -969,7 +1093,6 @@
       {
         "type": "field",
         "domain": [
-          "full:mx1.mdm-print.ru",
           "domain:deepmind.com",
           "domain:deepmind.google",
           "domain:geller-pa.googleapis.com",
@@ -1025,6 +1148,8 @@
           "[LITVA-XHTTP]",
           "[LITVA-2-GRPC]",
           "[LITVA-2-XHTTP]",
+          "[POLAND-GRPC]",
+          "[POLAND-XHTTP]",
           "[FINLAND-GRPC]",
           "[FINLAND-XHTTP]",
           "[GERMANY-GRPC]",
@@ -1054,6 +1179,8 @@
           "[LITVA-XHTTP]",
           "[LITVA-2-GRPC]",
           "[LITVA-2-XHTTP]",
+          "[POLAND-GRPC]",
+          "[POLAND-XHTTP]",
           "[FINLAND-GRPC]",
           "[FINLAND-XHTTP]",
           "[GERMANY-GRPC]",
